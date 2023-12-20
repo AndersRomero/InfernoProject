@@ -1,11 +1,23 @@
 <?php
 include '../conexion.php';
 
+if(isset($_GET['txtID'])){
+    // borrar dicho registro con el ID correspondiente
+    $txtID= (isset($_GET['txtID']) ? $_GET['txtID'] : "");
+    $sentencia=$conexion->prepare("DELETE FROM proxy WHERE id=:id ");
+    $sentencia->bindParam(":id",$txtID);
+    $sentencia->execute();
+
+}
+
+
 $sentencia = $conexion->prepare("SELECT * FROM proxy");
 $sentencia->execute();
 $proxys = $sentencia->get_result()->fetch_all(MYSQLI_ASSOC);
 
 include '../templates/header.php';
+
+
 ?>
 
 <div class="card">
@@ -34,6 +46,13 @@ include '../templates/header.php';
                     <td><?php echo $registros['image']?></td>
                     <td><?php echo $registros['description']?></td>
                     <td><?php echo $registros['price']?></td>
+                    <td>
+                        <a type="button" class="btn btn-warning" href="editar.php?id=<?php echo $registros['id'];?>">Editar</a>
+
+                        <a type="button" class="btn btn-danger" href="index.php?txtid<?php echo $registros['id'];  ?>">Eliminar</a>
+                        bs5-button a href="index.php?txtID=<?php echo $registros['id'];  ?>" class="btn btn-danger">Eliminar</a>
+                    </td>
+
                     </tr>
                     <?php } ?>
 
