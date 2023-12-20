@@ -34,16 +34,17 @@ $proxys = $sentencia->get_result()->fetch_all(MYSQLI_ASSOC);
 
 include '../templates/header.php';
 ?>
+<link rel="stylesheet" href="../css/index.css">
 
 <div class="card">
     <div class="card-header d-flex">
-        <h3>Proxys</h3>
-        <a type="button" class="btn btn-primary ml-auto" href="crear.php">Crear</a>
+        <h3 style="margin-left: auto">Proxys</h3>
+        <a type="button" class="btn btn-outline-light ml-auto" href="crear.php">+</a>
     </div>
 
     <div class="card-body">
         <div class="table-responsive-sm">
-            <table class="table table-striped">
+            <table class="table table-striped table-hover">
                 <thead>
                     <tr>
                         <th scope="col">ID</th>
@@ -72,8 +73,8 @@ include '../templates/header.php';
                             <td><?php echo $registro['description'] ?></td>
                             <td><?php echo $registro['price'] ?></td>
                             <td>
-                                <a type="button" class="btn btn-warning" href="editar.php?txtid=<?php echo $registro['id']; ?>">Editar</a>
-                                <a type="button" class="btn btn-danger" href="index.php?eliminar_id=<?php echo $registro['id']; ?>" onclick="return ConfirmDelete();">Eliminar</a>
+                                <a type="button" class="btn btn-outline-warning" href="editar.php?txtid=<?php echo $registro['id']; ?>">Editar</a>
+                                <a type="button" class="btn btn-outline-danger" href="index.php?eliminar_id=<?php echo $registro['id']; ?>" onclick="return ConfirmDelete();">Eliminar</a>
                             </td>
                         </tr>
                     <?php } ?>

@@ -16,17 +16,17 @@ $url_base = "http://localhost/personal/infernoproject/";
     <title>INFERNO PROJECT</title>
     <style>
         body {
-            background-color: #efeeee;
+            background-color: #000000;
         }
         .nav-tabs .nav-link {
-            color: #000000;
+            color: #ffffff;
             font-size: 20px;
         }
         .nav-tabs .nav-link:hover {
             color: #fd660b;
         }
         .bg-body-tertiary {
-            background-color: #ffffff;
+            background-color: #000000;
         }
     </style>
     <header class="container-fuild">
@@ -43,4 +43,5 @@ $url_base = "http://localhost/personal/infernoproject/";
         </nav>
     </header>
 </head>
+<br/>
 <body>
