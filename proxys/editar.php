@@ -3,7 +3,7 @@
 include '../conexion.php';
 
 if ($_POST) {
-    $id = $_POST['txtid'];
+    $id = $_POST['id'];
     $name = $_POST['name'];
     $image = $_POST['image'];
     $description = $_POST['description'];
@@ -23,13 +23,7 @@ if ($_POST) {
         <h3>Editar Proxy</h3>
     </div>
     <div class="card-body">
-        <form action="crear.php" enctype="multipart/form-data" method="POST">
-
-            <div class="mb-3">
-                <label for="txtid" class="form-label">ID:</label>
-                <input type="text"class="form-control" name="txtid" id="txtid" aria-describedby="helpId" placeholder="id">
-
-            </div>
+        <form action="editar.php" enctype="multipart/form-data" method="POST">
 
             <div class="mb-3">
                 <label for="name" class="form-label">Nombre</label>
@@ -48,7 +42,7 @@ if ($_POST) {
                 <input type="text" class="form-control" id="price" name="price" aria-describedby="helpId" placeholder="Precio">
             </div>
 
-            <button type="submit" class="btn btn-success" >Crear</button>
+            <button type="submit" class="btn btn-success" >Actualizar</button>
             <a type="button" class="btn btn-danger" href="index.php">Cancelar</a>
 
     </div>
