@@ -3,33 +3,51 @@ include '../conexion.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = $_POST['name'];
-    $image = $_POST['image'];
     $description = $_POST['description'];
     $price = $_POST['price'];
 
     // Validación de campos requeridos
-    if (empty($name) || empty($image) || empty($description) || empty($price)) {
+    if (empty($name) || empty($description) || empty($price)) {
         echo "Todos los campos son obligatorios.";
     } elseif (!is_numeric($price)) {
         echo "El precio debe ser un número.";
     } else {
-        // Sentencia preparada para evitar la inyección de SQL
-        $sql = "INSERT INTO proxy (name, image, description, price) VALUES (?, ?, ?, ?)";
-        $stmt = $conexion->prepare($sql);
+        // Manejo de la subida de la imagen
+        $target_dir = "uploads/";
 
-        // Vincula los parámetros y ejecuta la sentencia
-        $stmt->bind_param("sssd", $name, $image, $description, $price);
-        $query = $stmt->execute();
-
-        if ($query) {
-            header("Location: index.php");
-            exit(); // Importante: salir después de redirigir para evitar la ejecución adicional del código.
-        } else {
-            echo "Error al crear el proxy: " . $stmt->error;
+        // Crea el directorio si no existe
+        if (!file_exists($target_dir)) {
+            mkdir($target_dir, 0755, true);
         }
 
-        // Cierra la declaración
-        $stmt->close();
+        $target_file = $target_dir . basename($_FILES["image"]["name"]);
+        $uploadOk = 1;
+        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+
+        // Verifica si el archivo es una imagen real o una imagen falsa...
+        // Resto del código de subida de archivo...
+
+        if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
+            // Sentencia preparada para evitar la inyección de SQL
+            $sql = "INSERT INTO proxy (name, image, description, price) VALUES (?, ?, ?, ?)";
+            $stmt = $conexion->prepare($sql);
+
+            // Vincula los parámetros y ejecuta la sentencia
+            $stmt->bind_param("sssd", $name, $target_file, $description, $price);
+            $query = $stmt->execute();
+
+            if ($query) {
+                header("Location: index.php");
+                exit(); // Importante: salir después de redirigir para evitar la ejecución adicional del código.
+            } else {
+                echo "Error al crear el proxy: " . $stmt->error;
+            }
+
+            // Cierra la declaración
+            $stmt->close();
+        } else {
+            echo "Hubo un error al subir tu archivo.";
+        }
     }
 }
 
@@ -48,7 +66,7 @@ include '../templates/header.php';
             </div>
             <div class="mb-3">
                 <label for="image" class="form-label">Imagen</label>
-                <input type="text" class="form-control" id="image" name="image" aria-describedby="helpId" placeholder="Imagen" required>
+                <input type="file" class="form-control" id="image" name="image" aria-describedby="helpId" accept="image/*" required>
             </div>
             <div class="mb-3">
                 <label for="description" class="form-label">Descripción</label>
