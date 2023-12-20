@@ -45,7 +45,7 @@ include '../templates/header.php';
                     <td><?php echo $registros['description']?></td>
                     <td><?php echo $registros['price']?></td>
                     <td>
-                        <a type="button" class="btn btn-warning" href="editar.php?id=<?php echo $registros['id'];?>">Editar</a>
+                        <a type="button" class="btn btn-warning" href="editar.php?txtid=<?php echo $registros['id'];?>">Editar</a>
 
                         <a type="button" class="btn btn-danger" href="index.php?txtid=<?php echo $registros['id'];?>" role="button">Eliminar</a>
                     </td>
