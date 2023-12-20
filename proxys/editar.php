@@ -1,25 +1,17 @@
-<?php include 'templates/header.php';
+<?php include '../templates/header.php';
 
 include '../conexion.php';
 
+if ($_POST) {
+    $id = $_POST['txtid'];
+    $name = $_POST['name'];
+    $image = $_POST['image'];
+    $description = $_POST['description'];
+    $price = $_POST['price'];
 
+    $sql = "UPDATE proxy SET name = '$name', image = '$image', description = '$description', price = '$price' WHERE id = '$id'";
+    $query = mysqli_query($conexion, $sql);
 
-
-if(isset($_GET['txtID'])){
-    // RECUPERAR datos  dicho registro con el ID correspondiente
-    $txtID= (isset($_GET['txtID']) ? $_GET['txtID'] : "");
-    $sentencia=$conexion->prepare("SELECT * FROM proxy WHERE id=:id ");
-    $sentencia->bindParam(":id",$txtID);
-    $sentencia->execute();
-    $registro= $sentencia->fetch(PDO::FETCH_LAZY);
-
-    $name=$registro['name'];
-    $image=$registro['image'];
-    $description=$registro['description'];
-    $price=$registro['price'];
-
-
-    , image, description, price
 }
 
 ?>
@@ -34,8 +26,8 @@ if(isset($_GET['txtID'])){
         <form action="crear.php" enctype="multipart/form-data" method="POST">
 
             <div class="mb-3">
-                <label for="txtID" class="form-label">ID:</label>
-                <input type="text"class="form-control" name="txtID" id="txtID" aria-describedby="helpId" placeholder="ID">
+                <label for="txtid" class="form-label">ID:</label>
+                <input type="text"class="form-control" name="txtid" id="txtid" aria-describedby="helpId" placeholder="id">
 
             </div>
 
@@ -62,4 +54,4 @@ if(isset($_GET['txtID'])){
     </div>
 </div>
 
-<?php include 'templates/footer.php'; ?>
+<?php include '../templates/footer.php'; ?>
