@@ -40,6 +40,7 @@ include '../templates/header.php';
         <h3>Proxys</h3>
         <a type="button" class="btn btn-primary ml-auto" href="crear.php">Crear</a>
     </div>
+    
 
     <div class="card-body">
         <div class="table-responsive-sm">

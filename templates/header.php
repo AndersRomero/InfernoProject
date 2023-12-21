@@ -28,6 +28,8 @@ $url_base = "http://localhost/personal/infernoproject/";
         .bg-body-tertiary {
             background-color: #ffffff;
         }
+
+        
     </style>
     <header class="container-fuild">
         <nav class="navbar navbar-expand-lg nav-tabs bg-body-tertiary">
