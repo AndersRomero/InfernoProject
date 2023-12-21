@@ -4,9 +4,9 @@ include '../conexion.php';
 
 if (isset($_GET['txtid'])) {
     $txtid = $_GET['txtid'];
-    $sentencia = $conexion->prepare("SELECT * FROM proxy WHERE id = ?");
+    $sentencia = $conexion->prepare("SELECT * FROM config WHERE id = ?");
     $resultado = $sentencia->execute([$txtid]);
-    $proxy = $sentencia->get_result()->fetch_all(MYSQLI_ASSOC);
+    $config = $sentencia->get_result()->fetch_all(MYSQLI_ASSOC);
 }
 
 if ($_POST) {
@@ -17,7 +17,7 @@ if ($_POST) {
 
     $newImage = $_FILES['image'];
 
-    $oldImagePath = $proxy[0]['image'];
+    $oldImagePath = $config[0]['image'];
 
     if (empty($name) || empty($description) || empty($price)) {
         echo "Todos los campos son obligatorios.";
@@ -25,7 +25,7 @@ if ($_POST) {
         echo "El precio debe ser un número positivo.";
     } else {
         if (!empty($newImage['name'])) {
-            $target_dir = "uploadsproxy/";
+            $target_dir = "uploadsconfig/";
             $target_file = $target_dir . basename($newImage["name"]);
 
             if (!file_exists($target_dir)) {
@@ -37,7 +37,7 @@ if ($_POST) {
             }
 
             if (move_uploaded_file($newImage["tmp_name"], $target_file)) {
-                $sentencia = $conexion->prepare("UPDATE proxy SET name = ?, image = ?, description = ?, price = ? WHERE id = ?");
+                $sentencia = $conexion->prepare("UPDATE config SET name = ?, image = ?, description = ?, price = ? WHERE id = ?");
                 $resultado = $sentencia->execute([$name, $target_file, $description, $price, $txtid]);
             } else {
                 echo "Hubo un error al subir tu nueva imagen.";
@@ -48,13 +48,13 @@ if ($_POST) {
                 unlink($oldImagePath);
             }
 
-            $sentencia = $conexion->prepare("UPDATE proxy SET name = ?, description = ?, price = ? WHERE id = ?");
+            $sentencia = $conexion->prepare("UPDATE config SET name = ?, description = ?, price = ? WHERE id = ?");
             $resultado = $sentencia->execute([$name, $description, $price, $txtid]);
         }
 
         if ($resultado === TRUE) {
             header("Location: index.php");
-            exit(); // Importante: salir después de redirigir para evitar la ejecución adicional del código.
+            exit();
         } else {
             echo "Error al actualizar el proxy: " . mysqli_error($conexion);
         }
@@ -65,7 +65,7 @@ if ($_POST) {
 
 <div class="card mx-auto" align="center">
     <div class="card-header">
-        <h3>Editar Proxy</h3>
+        <h3>Editar Config</h3>
     </div>
     <div class="card-body">
         <form action="editar.php" enctype="multipart/form-data" method="POST">
@@ -76,7 +76,7 @@ if ($_POST) {
 
             <div class="mb-3">
                 <label for="name" class="form-label">Nombre</label>
-                <input type="text" class="form-control" id="name" name="name" value="<?php echo $proxy[0]['name']; ?>" aria-describedby="helpId" placeholder="Nombre" required>
+                <input type="text" class="form-control" id="name" name="name" value="<?php echo $config[0]['name']; ?>" aria-describedby="helpId" placeholder="Nombre" required>
             </div>
             <div class="mb-3">
                 <label for="image" class="form-label">Imagen</label>
@@ -84,11 +84,11 @@ if ($_POST) {
             </div>
             <div class="mb-3">
                 <label for="description" class="form-label">Descripción</label>
-                <input type="text" class="form-control" id="description" name="description" value="<?php echo $proxy[0]['description']; ?>" aria-describedby="helpId" placeholder="Descripción" required>
+                <input type="text" class="form-control" id="description" name="description" value="<?php echo $config[0]['description']; ?>" aria-describedby="helpId" placeholder="Descripción" required>
             </div>
             <div class="mb-3">
                 <label for="price" class="form-label">Precio</label>
-                <input type="number" class="form-control" id="price" name="price" value="<?php echo $proxy[0]['price']; ?>" aria-describedby="helpId" placeholder="Precio" required>
+                <input type="number" class="form-control" id="price" name="price" value="<?php echo $config[0]['price']; ?>" aria-describedby="helpId" placeholder="Precio" required>
             </div>
 
             <button type="submit" class="btn btn-outline-success">Actualizar</button>

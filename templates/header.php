@@ -34,9 +34,9 @@ $url_base = "http://localhost/personal/infernoproject/";
             <div class="container">
                 <div class="collapse navbar-collapse">
                     <div class="navbar-nav nav-left">
-                        <a class="nav-link" href="">Streaming</a>
+                        <a class="nav-link" href="<?php echo $url_base;?>streaming">Streaming</a>
                         <a class="nav-link" href="<?php echo $url_base;?>proxys">Proxys</a>
-                        <a class="nav-link" href="#">Configs</a>
+                        <a class="nav-link" href="<?php echo $url_base;?>config">Configs</a>
                     </div>
                 </div>
             </div>

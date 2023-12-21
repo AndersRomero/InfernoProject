@@ -6,18 +6,18 @@ if (isset($_GET['eliminar_id'])) {
     $id_eliminar = $_GET['eliminar_id'];
 
     // Obtener la información del proxy antes de eliminarlo
-    $sentencia_info = $conexion->prepare("SELECT * FROM proxy WHERE id = ?");
+    $sentencia_info = $conexion->prepare("SELECT * FROM config WHERE id = ?");
     $sentencia_info->execute([$id_eliminar]);
-    $proxy_info = $sentencia_info->get_result()->fetch_assoc();
+    $config_info = $sentencia_info->get_result()->fetch_assoc();
 
     // Eliminar el proxy
-    $sentencia_eliminar = $conexion->prepare("DELETE FROM proxy WHERE id = ?");
+    $sentencia_eliminar = $conexion->prepare("DELETE FROM config WHERE id = ?");
     $resultado_eliminar = $sentencia_eliminar->execute([$id_eliminar]);
 
     if ($resultado_eliminar) {
         // Eliminar la imagen asociada si existe
-        if (!empty($proxy_info['image']) && file_exists($proxy_info['image'])) {
-            unlink($proxy_info['image']);
+        if (!empty($config_info['image']) && file_exists($config_info['image'])) {
+            unlink($config_info['image']);
         }
 
         header("Location: index.php");
@@ -28,9 +28,9 @@ if (isset($_GET['eliminar_id'])) {
 }
 
 // Recuperar la lista de proxys
-$sentencia = $conexion->prepare("SELECT * FROM proxy");
+$sentencia = $conexion->prepare("SELECT * FROM config");
 $sentencia->execute();
-$proxys = $sentencia->get_result()->fetch_all(MYSQLI_ASSOC);
+$config = $sentencia->get_result()->fetch_all(MYSQLI_ASSOC);
 
 include '../templates/header.php';
 ?>
@@ -38,7 +38,7 @@ include '../templates/header.php';
 
 <div class="card">
     <div class="card-header d-flex">
-        <h3 style="margin-left: auto">Proxys</h3>
+        <h3 style="margin-left: auto">Configs</h3>
         <a type="button" class="btn btn-outline-light ml-auto" href="crear.php">+</a>
     </div>
 
@@ -56,7 +56,7 @@ include '../templates/header.php';
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($proxys as $registro) { ?>
+                    <?php foreach ($config as $registro) { ?>
                         <tr>
                             <td><?php echo $registro['id'] ?></td>
                             <td><?php echo $registro['name'] ?></td>

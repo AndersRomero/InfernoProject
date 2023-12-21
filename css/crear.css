@@ -1,0 +1,42 @@
+body {
+    background-color: #000000;
+    color: #fdfdfd;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+}
+.card {
+    background-color: #000000;
+    border-radius: 3px;
+    margin-bottom: 15px;
+    padding: 15px;
+    width: auto;
+    align-self: center;
+    color: white;
+}
+.form-control{
+    background-color: #000000;
+    border: 2px solid #fdfdfd;
+}
+.form-control:focus{
+    background-color: #000000;
+    border: 2px solid #fdfdfd;
+    color: white;
+}
+.form-control::placeholder{
+    color: white;
+}
+.form-control {
+    color: white;
+}
+
+.form-control[readonly] {
+    background-color: black;
+    color: inherit;
+}
+.btn-outline-success, .btn-outline-danger{
+    font-weight: bold;
+}

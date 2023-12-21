@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo "El precio debe ser un número.";
     } else {
 
-        $target_dir = "uploadsproxy/";
+        $target_dir = "uploadsconfig/";
 
         if (!file_exists($target_dir)) {
             mkdir($target_dir, 0755, true);
@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
 
-            $sql = "INSERT INTO proxy (name, image, description, price) VALUES (?, ?, ?, ?)";
+            $sql = "INSERT INTO config (name, image, description, price) VALUES (?, ?, ?, ?)";
             $stmt = $conexion->prepare($sql);
 
             $stmt->bind_param("sssd", $name, $target_file, $description, $price);
@@ -49,7 +49,7 @@ include '../templates/header.php';
 <link rel="stylesheet" href="../css/crear.css">
 <div class="card mx-auto" align="center">
     <div class="card-header">
-        <h3>Crear Proxy</h3>
+        <h3>Crear Config</h3>
     </div>
     <div class="card-body">
         <form action="crear.php" enctype="multipart/form-data" method="POST">
