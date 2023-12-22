@@ -31,7 +31,7 @@ $proxys = $sentencia->get_result()->fetch_all(MYSQLI_ASSOC);
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css"/>
 
     <title>INFERNO PROJECT</title>
     <style>
@@ -108,7 +108,7 @@ $proxys = $sentencia->get_result()->fetch_all(MYSQLI_ASSOC);
     <nav class="navbar navbar-expand-lg nav-tabs bg-body-tertiary">
         <div class="container">
             <div class="navbar-nav nav-left mx-auto">
-                <a class="nav-link special" href="/secciones/streaming.php">Streaming</a>
+                <a class="nav-link special" href="streaming.php">Streaming</a>
                 <a class="nav-link special" href="#">Proxys</a>
                 <a class="nav-link special" href="#">Checkers</a>
             </div>
@@ -127,10 +127,10 @@ $proxys = $sentencia->get_result()->fetch_all(MYSQLI_ASSOC);
             <div class="form-group">
                 <label for="adminPassword">Contraseña:</label>
                 <input
-                    type="password"
-                    class="form-control"
-                    id="adminPassword"
-                    required
+                        type="password"
+                        class="form-control"
+                        id="adminPassword"
+                        required
                 />
             </div>
             <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
@@ -139,10 +139,13 @@ $proxys = $sentencia->get_result()->fetch_all(MYSQLI_ASSOC);
 </header>
 
 <body>
-<section>
 
-
+    <section>
     <h1 class="text-center text-white">STREAMING</h1>
+
+
+
+
     <div class="container d-flex flex-wrap justify-content-around">
         <?php foreach ($proxys as $registro) { ?>
             <div class="card mb-3" style="width: 18rem;">
