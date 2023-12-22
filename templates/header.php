@@ -1,5 +1,5 @@
 <?php
-$url_base = "http://localhost/personal/infernoproject/";
+$url_base = "http://localhost/personal/infernoproject/admin/";
 ?>
 
 <!doctype html>

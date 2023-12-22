@@ -1,5 +1,5 @@
 <?php
-include '../conexion.php';
+include '../../conexion.php';
 
 // Eliminar proxy
 if (isset($_GET['eliminar_id'])) {
@@ -32,9 +32,9 @@ $sentencia = $conexion->prepare("SELECT * FROM streaming");
 $sentencia->execute();
 $streaming = $sentencia->get_result()->fetch_all(MYSQLI_ASSOC);
 
-include '../templates/header.php';
+include '../../templates/header.php';
 ?>
-<link rel="stylesheet" href="../css/index.css">
+<link rel="stylesheet" href="../../css/index.css">
 
 <div class="card">
     <div class="card-header d-flex">
@@ -84,7 +84,7 @@ include '../templates/header.php';
     </div>
 </div>
 
-<?php include '../templates/footer.php'; ?>
+<?php include '../../templates/footer.php'; ?>
 
 <script type="text/javascript">
     function ConfirmDelete() {

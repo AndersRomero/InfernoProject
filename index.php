@@ -95,8 +95,8 @@
     <header class="container-fuild">
       <nav class="navbar navbar-expand-lg nav-tabs bg-body-tertiary">
         <div class="container">
-          <div class="navbar-nav nav-left">
-            <a class="nav-link special" href="#">Streaming</a>
+          <div class="navbar-nav nav-left mx-auto">
+            <a class="nav-link special" href="/secciones/streaming.php">Streaming</a>
             <a class="nav-link special" href="#">Proxys</a>
             <a class="nav-link special" href="#">Checkers</a>
           </div>

@@ -1,6 +1,6 @@
 <?php
-include '../templates/header.php';
-include '../conexion.php';
+include '../../templates/header.php';
+include '../../conexion.php';
 
 if (isset($_GET['txtid'])) {
     $txtid = $_GET['txtid'];
@@ -61,7 +61,7 @@ if ($_POST) {
     }
 }
 ?>
-<link rel="stylesheet" href="../css/crear.css">
+<link rel="stylesheet" href="../../css/crear.css">
 
 <div class="card mx-auto" align="center">
     <div class="card-header">
@@ -97,4 +97,4 @@ if ($_POST) {
     </div>
 </div>
 
-<?php include '../templates/footer.php'; ?>
+<?php include '../../templates/footer.php'; ?>

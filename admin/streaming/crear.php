@@ -1,5 +1,5 @@
 <?php
-include '../conexion.php';
+include '../../conexion.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = $_POST['name'];
@@ -44,9 +44,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-include '../templates/header.php';
+include '../../templates/header.php';
 ?>
-<link rel="stylesheet" href="../css/crear.css">
+<link rel="stylesheet" href="../../css/crear.css">
 <div class="card mx-auto" align="center">
     <div class="card-header">
         <h3>Crear Streaming</h3>
@@ -76,4 +76,4 @@ include '../templates/header.php';
     </div>
 </div>
 
-<?php include '../templates/footer.php'; ?>
+<?php include '../../templates/footer.php'; ?>
