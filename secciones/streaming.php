@@ -31,7 +31,7 @@ $proxys = $sentencia->get_result()->fetch_all(MYSQLI_ASSOC);
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles.css"/>
+    <link rel="stylesheet" href="../css/streaming.css"/>
 
     <title>INFERNO PROJECT</title>
     <style>
@@ -143,24 +143,20 @@ $proxys = $sentencia->get_result()->fetch_all(MYSQLI_ASSOC);
     <section>
     <h1 class="text-center text-white">STREAMING</h1>
 
-
-
-
     <div class="container d-flex flex-wrap justify-content-around">
-        <?php foreach ($proxys as $registro) { ?>
-            <div class="card mb-3" style="width: 18rem;">
-                <img src="<?php echo $registro['image'] ?>" class="card-img-top img-fluid" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title"><?php echo $registro['name'] ?></h5>
-                    <p class="card-text"><?php echo $registro['description'] ?></p>
-                    <a href="#" class="btn btn-primary"><?php echo $registro['price'] ?></a>
+        <?php foreach ($proxys as $registros) { ?>
+            <div class="card">
+                <img src="../admin/proxys/<?php echo $registros['image']; ?>" alt="Card Image">
+                <div class="card-content">
+                    <h3 class="title"><?php echo $registros['name']; ?></h3>
+                    <p class="description"><?php echo $registros['description']; ?></p>
+                    <div class="details">
+                        <p class="price">Precio: <?php echo $registros['price']; ?></p>
+                    </div>
+                    <a href="#" class="btn">Agregar al Carrito</a>
                 </div>
             </div>
         <?php } ?>
     </div>
-
 </section>
-
-
-
 </body>
