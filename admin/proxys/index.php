@@ -27,6 +27,28 @@ if (isset($_GET['eliminar_id'])) {
     }
 }
 
+// Cambiar estado de disponibilidad de proxy
+if (isset($_GET['cambiar_estado_id'])) {
+    $id_cambiar_estado = $_GET['cambiar_estado_id'];
+
+    // Obtener el estado actual del proxy antes de cambiarlo
+    $sentencia_estado = $conexion->prepare("SELECT agotado FROM proxy WHERE id = ?");
+    $sentencia_estado->execute([$id_cambiar_estado]);
+    $proxy_estado = $sentencia_estado->get_result()->fetch_assoc();
+
+    // Cambiar el estado del proxy
+    $nuevo_estado = $proxy_estado['agotado'] ? 0 : 1; // Cambia de 0 a 1 o de 1 a 0
+    $sentencia_cambiar_estado = $conexion->prepare("UPDATE proxy SET agotado = ? WHERE id = ?");
+    $resultado_cambiar_estado = $sentencia_cambiar_estado->execute([$nuevo_estado, $id_cambiar_estado]);
+
+    if ($resultado_cambiar_estado) {
+        header("Location: index.php");
+        exit();
+    } else {
+        echo "Error al cambiar el estado del proxy: " . mysqli_error($conexion);
+    }
+}
+
 // Recuperar la lista de proxys
 $sentencia = $conexion->prepare("SELECT * FROM proxy");
 $sentencia->execute();
@@ -52,6 +74,7 @@ include '../../templates/header.php';
                         <th scope="col">Imagen</th>
                         <th scope="col">Descripción</th>
                         <th scope="col">Precio</th>
+                        <th scope="col">Estado</th>
                         <th scope="col">Acciones</th>
                     </tr>
                 </thead>
@@ -73,6 +96,13 @@ include '../../templates/header.php';
                             <td><?php echo $registro['description'] ?></td>
                             <td><?php echo $registro['price'] ?></td>
                             <td>
+                                <?php if ($registro['agotado']) { ?>
+                                    <button class="btn btn-danger" onclick="cambiarEstado(<?php echo $registro['id']; ?>)">Agotado</button>
+                                <?php } else { ?>
+                                    <button class="btn btn-success" onclick="cambiarEstado(<?php echo $registro['id']; ?>)">Disponible</button>
+                                <?php } ?>
+                            </td>
+                            <td>
                                 <a type="button" class="btn btn-outline-warning" href="editar.php?txtid=<?php echo $registro['id']; ?>">Editar</a>
                                 <a type="button" class="btn btn-outline-danger" href="index.php?eliminar_id=<?php echo $registro['id']; ?>" onclick="return ConfirmDelete();">Eliminar</a>
                             </td>
@@ -91,4 +121,12 @@ include '../../templates/header.php';
         var respuesta = confirm("¿Estás seguro que deseas eliminar el item?");
         return respuesta;
     }
+
+    function cambiarEstado(id) {
+        var respuesta = confirm("¿Quieres cambiar el estado del producto?");
+        if (respuesta) {
+            window.location.href = "index.php?cambiar_estado_id=" + id;
+        }
+    }
 </script>
+
