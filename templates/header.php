@@ -21,6 +21,7 @@ $url_base = "http://localhost/personal/infernoproject/admin/";
         .nav-tabs .nav-link {
             color: #ffffff;
             font-size: 20px;
+            font-weight: bold;
         }
         .nav-tabs .nav-link:hover {
             color: #fd660b;
@@ -33,7 +34,7 @@ $url_base = "http://localhost/personal/infernoproject/admin/";
         <nav class="navbar navbar-expand-lg nav-tabs bg-body-tertiary">
             <div class="container">
                 <div class="collapse navbar-collapse">
-                    <div class="navbar-nav nav-left">
+                    <div class="navbar-nav mx-auto">
                         <a class="nav-link" href="<?php echo $url_base;?>streaming">Streaming</a>
                         <a class="nav-link" href="<?php echo $url_base;?>proxys">Proxys</a>
                         <a class="nav-link" href="<?php echo $url_base;?>config">Configs</a>

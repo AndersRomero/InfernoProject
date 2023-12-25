@@ -10,123 +10,13 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-    <link rel="stylesheet" href="styles.css" />
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="css/indexprincipal.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
 
     <title>INFERNO PROJECT</title>
-    <style>
-        body {
-            background-color: #000000;
-            overflow: hidden; /* Oculta la barra de desplazamiento vertical */
-        }
 
-        .nav-tabs .nav-link {
-            color: #ffffff;
-            font-size: 20px;
-        }
-
-        .nav-tabs .nav-link:hover {
-            color: #fd660b;
-        }
-
-        .bg-body-tertiary {
-            background-color: #000000;
-        }
-
-        .admin-icon {
-            font-size: 30px;
-            color: #fd660b;
-            cursor: pointer;
-            position: fixed;
-            top: 20px;
-            right: 20px;
-        }
-
-        img.custom-image {
-            width: 80%;
-            height: auto;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: -1;
-        }
-
-        /* Define la animación */
-        @keyframes example {
-            from {
-                transform: scale(0);
-                opacity: 0;
-            }
-            to {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        /* Añadido para el botón de verificación */
-        .admin-login-form {
-            display: none;
-            position: fixed;
-            top: 70px;
-            right: 20px;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-            border-radius: 5px;
-        }
-
-        /* Agregado para centrar y ajustar tamaños en dispositivos pequeños */
-        @media (max-width: 768px) {
-            .navbar-nav,
-            .navbar-nav.nav-left {
-                text-align: center;
-            }
-
-            .nav-link {
-                font-size: 18px;
-            }
-        }
-        
-
-  
-
-        /* Estilo para hacer los enlaces más grandes y centrados */
-        .navbar-nav.nav-left .nav-link {
-            font-size: 24px;
-            margin: 0 15px; /* Ajusta el espacio entre los enlaces si es necesario */
-        }
-
-        /* Alineación y tamaño de los elementos Streaming, Proxys y Checkers */
-        .navbar-nav.nav-left .nav-link.special {
-            font-size: 28px;
-            margin: 0 20px;
-        }
-
-        /* Estilo para ajustar el tamaño de la imagen en dispositivos pequeños */
-        @media (max-width: 576px) {
-            img.custom-image {
-                max-width: 100%; /* Ajusta según tus preferencias */
-                height: auto;
-            }
-        }
-
-        /* Estilo para ajustar el tamaño del video */
-        section.video-section {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-
-        video.background-video {
-            position: absolute;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            z-index: -1;
-        }
-    </style>
 </head>
 
 <body>
@@ -170,14 +60,7 @@
 
     <section>
         <div class="container">
-            <img src="images/image2.png" class="img-fluid custom-image" alt="Imagen" />
-        </div>
-    </section>
-
-    <section>
-        <div class="container">
-            <h1 class="text-center">STREAMING</h1>
-            <div id="catalog"></div>
+            <img src="images/image2.png" class="img-fluid custom-image animate__animated animate__fadeIn" alt="Imagen" />
         </div>
     </section>
 
