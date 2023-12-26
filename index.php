@@ -11,7 +11,7 @@
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <!-- Estilos personalizados -->
-    <link rel="stylesheet" href="css/indexprincipal.css" />
+    <link rel="stylesheet" href="css/indexpgprincipal.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
 
@@ -22,32 +22,21 @@
 <body>
 
     <header class="container-fuild">
-        <nav class="navbar navbar-expand-lg nav-tabs bg-body-tertiary">
+        <nav class="navbar navbar-expand-lg nav-tabs bg-body-tertiary animate__animated animate__fadeInDown">
             <div class="container">
-                <div class="navbar-nav nav-left mx-auto">
+                <div class="navbar-nav nav-left mx-auto ">
                     <a class="nav-link special" href="secciones/streaming.php">Streaming</a>
                     <a class="nav-link special" href="#">Proxys</a>
                     <a class="nav-link special" href="#">Checkers</a>
                 </div>
 
                 <!-- Icono de administrador -->
-                <div class="admin-icon" onclick="toggleAdminLogin()">
+                <a href="admin/login.php" class="admin-icon animate__animated animate__fadeInDown">
                     <i class="fas fa-user-cog"></i>
-                </div>
+                </a>
+
             </div>
         </nav>
-
-        <!-- Formulario de inicio de sesión de administrador -->
-        <div class="admin-login-form">
-            <h2 class="text-center mb-4">Verificación de Administrador</h2>
-            <form id="adminLoginForm" onsubmit="validateAdmin(); return false;">
-                <div class="form-group">
-                    <label for="adminPassword">Contraseña:</label>
-                    <input type="password" class="form-control" id="adminPassword" required />
-                </div>
-                <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
-            </form>
-        </div>
     </header>
 
     <!-- Sección de video como fondo -->
