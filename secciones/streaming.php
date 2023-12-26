@@ -31,7 +31,14 @@ $proxys = $sentencia->get_result()->fetch_all(MYSQLI_ASSOC);
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<<<<<<< HEAD
     <link rel="stylesheet" href="styles.css"/>
+=======
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="../css/secciones.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+>>>>>>> features/fondoanimado
 
     <title>INFERNO PROJECT</title>
     <style>
@@ -104,22 +111,27 @@ $proxys = $sentencia->get_result()->fetch_all(MYSQLI_ASSOC);
     </style>
 </head>
 <body>
-<header class="container-fuild">
+<header class="container-fuild animate__animated animate__fadeInDown">
     <nav class="navbar navbar-expand-lg nav-tabs bg-body-tertiary">
         <div class="container">
+<<<<<<< HEAD
             <div class="navbar-nav nav-left mx-auto">
+=======
+            <div class="navbar-nav mx-auto  ">
+>>>>>>> features/fondoanimado
                 <a class="nav-link special" href="streaming.php">Streaming</a>
                 <a class="nav-link special" href="#">Proxys</a>
                 <a class="nav-link special" href="#">Checkers</a>
             </div>
 
             <!-- Icono de administrador -->
-            <div class="admin-icon" onclick="toggleAdminLogin()">
+            <a href="../admin/login.php" class="admin-icon  ">
                 <i class="fas fa-user-cog"></i>
-            </div>
+            </a>
         </div>
     </nav>
 
+<<<<<<< HEAD
     <!-- Formulario de inicio de sesión de administrador -->
     <div class="admin-login-form">
         <h2 class="text-center mb-4">Verificación de Administrador</h2>
@@ -136,6 +148,8 @@ $proxys = $sentencia->get_result()->fetch_all(MYSQLI_ASSOC);
             <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
         </form>
     </div>
+=======
+>>>>>>> features/fondoanimado
 </header>
 
 <body>

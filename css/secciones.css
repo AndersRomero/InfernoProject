@@ -1,5 +1,5 @@
 body{
-    background-color: #181717;
+    background-color: #000000;
     font-family: 'Roboto', sans-serif;
     overflow: hidden;
 }
@@ -24,6 +24,10 @@ body{
     position: fixed;
     top: 20px;
     right: 20px;
+}
+
+.admin-icon:hover {
+    color: #fd660b;
 }
 
 img.custom-image {
@@ -59,6 +63,7 @@ img.custom-image {
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
     border-radius: 5px;
 }
+
 
 /* Agregado para centrar y ajustar tamaños en dispositivos pequeños */
 @media (max-width: 768px) {

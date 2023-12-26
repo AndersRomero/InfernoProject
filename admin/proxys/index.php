@@ -58,7 +58,7 @@ include '../../templates/header.php';
 ?>
 <link rel="stylesheet" href="../../css/index.css">
 
-<div class="card">
+<div class="card animate__animated animate__fadeIn">
     <div class="card-header d-flex">
         <h3 style="margin-left: auto">Proxys</h3>
         <a type="button" class="btn btn-outline-light ml-auto" href="crear.php">+</a>
