@@ -22,8 +22,8 @@ body{
     color: #faf4f4;
     cursor: pointer;
     position: fixed;
-    top: 20px;
-    right: 20px;
+    top: 16px;
+    right: 60px;
 }
 
 .admin-icon:hover {
@@ -161,4 +161,57 @@ img.custom-image {
 }
 .animate__animated.animate__fadeInDown {
     --animate-duration: 0.8s;
+}
+
+.carrito-container {
+    position: relative;
+}
+
+.carrito {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    height: 100%;
+    overflow-y: auto;
+    z-index: 1000;
+    display: none; /* Ocultar el carrito por defecto */
+}
+
+.carrito-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: none; /* Ocultar el overlay por defecto */
+}
+
+.carrito-item {
+    margin-bottom: 10px;
+    border-bottom: 1px solid #555;
+    padding-bottom: 10px;
+}
+
+.carrito-total {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.carrito-icon {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    color: #fff;
+    cursor: pointer;
+    z-index: 1001;
+}
+.carrito-icon:hover {
+    color: #fd660b;
 }
