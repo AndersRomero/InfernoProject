@@ -206,7 +206,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['eliminarItem'])) {
         var urlWhatsApp = "https://wa.me/" + numeroWhatsApp + "?text=" + mensajeCodificado;
 
         // Redirigir al usuario a la URL de WhatsApp después de realizar la compra
-        window.location.href = urlWhatsApp;
+        window.open(urlWhatsApp, '_blank');
 
         // También puedes realizar otras acciones necesarias después de la compra
         alert('Compra realizada. Redirigiendo a la página de pago...');
@@ -248,7 +248,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['eliminarItem'])) {
         });
 
         // Agregar el valor total al mensaje
-        lista += "\nValor Total de la Compra: $" + valorTotal.toFixed(2);
+        lista += "\nValor Total de la Compra: $" + <?php echo calcularTotal(); ?>;
 
         return lista;
     }
