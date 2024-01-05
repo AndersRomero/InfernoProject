@@ -58,7 +58,7 @@
     <!-- Sección de video como fondo -->
     <section class="video-section">
         <video class="background-video" autoplay loop muted>
-            <source src="images/2056726_Crackling_Fire_Firepit_1920x1080.mp4" type="video/mp4">
+            <source src="" type="video/mp4">
             Tu navegador no soporta el tag de video.
         </video>
     </section>
