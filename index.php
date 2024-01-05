@@ -12,10 +12,26 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <!-- Estilos personalizados -->
     <link rel="stylesheet" href="css/indexpgprincipal.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
 
     <title>INFERNO PROJECT</title>
+
+    <style>
+    .video-section {
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+    }
+    .background-video {
+        position: absolute;
+        top: -20%; /* Adjust the value to move the video up */
+        left: 0;
+        width: auto;
+        height: auto;
+    }
+</style>
+
 
 </head>
 
@@ -42,16 +58,12 @@
     <!-- Sección de video como fondo -->
     <section class="video-section">
         <video class="background-video" autoplay loop muted>
-            <source src="images/video.mp4" type="video/mp4">
+            <source src="images/2056726_Crackling_Fire_Firepit_1920x1080.mp4" type="video/mp4">
             Tu navegador no soporta el tag de video.
         </video>
     </section>
 
-    <section>
-        <div class="container">
-            <img src="images/image2.png" class="img-fluid custom-image animate__animated animate__fadeIn" alt="Imagen" />
-        </div>
-    </section>
+
 
     <!-- Bootstrap JS (Requiere jQuery y Popper.js) -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -65,34 +77,6 @@
         crossorigin="anonymous"></script>
     <script src="scripts.js"></script>
 
-    <script>
-        function toggleAdminLogin() {
-            var adminLoginForm = document.querySelector(".admin-login-form");
-            adminLoginForm.style.display =
-                adminLoginForm.style.display === "block" ? "none" : "block";
-        }
-
-        function validateAdmin() {
-            // Agrega aquí la lógica de validación del usuario administrador
-            var adminPasswordInput = document.getElementById("adminPassword");
-            var adminPassword = adminPasswordInput.value;
-
-            // Verifica las credenciales (en una aplicación real, debes hacer esto en el servidor)
-            if (adminPassword === "1243aaa") {
-                // Credenciales válidas, redirige a proxys/index.php
-                window.location.href = "proxys/index.php";
-            } else {
-                // Credenciales incorrectas, muestra un mensaje de error
-                alert("Contraseña de administrador incorrecta. Inténtalo de nuevo.");
-
-                // Limpia el campo de contraseña después de mostrar el mensaje de error
-                adminPasswordInput.value = "";
-            }
-
-            // Oculta el formulario después de la validación
-            document.querySelector(".admin-login-form").style.display = "none";
-        }
-    </script>
 </body>
 
 </html>
