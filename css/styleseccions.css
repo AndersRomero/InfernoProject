@@ -1,9 +1,8 @@
-
-
 body {
+    overflow: auto;
+    height: auto;
     background-color: #000000;
     font-family: "Roboto", sans-serif;
-    overflow: hidden;
 }
 
 .nav-tabs .nav-link {
@@ -82,6 +81,13 @@ img.custom-image {
 .navbar-nav .nav-link.special {
     font-size: 28px;
     margin: 0 20px;
+}
+.navbar-expand-lg{
+    color: white;
+}
+.navbar .navbar-toggler-icon{
+    color: #fff;
+    margin-top: 50%;
 }
 
 .card {

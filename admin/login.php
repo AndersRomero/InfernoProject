@@ -51,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <!-- Estilos personalizados -->
-    <link rel="stylesheet" href=../css/login.css />
+    <link rel="stylesheet" href=../css/loogin.css />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
 
@@ -61,25 +61,41 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <body>
 
-<header class="container-fuild">
-    <nav class="navbar navbar-expand-lg nav-tabs bg-body-tertiary">
+<header class="container-fluid animate__animated animate__fadeInDown">
+    <nav class="navbar navbar-expand-lg nav-tabs bg-body-tertiary flex-column">
         <div class="container">
-            <div class="navbar-nav nav-left mx-auto">
-                <a class="nav-link special" href="../secciones/streaming.php">Streaming</a>
-                <a class="nav-link special" href="#">Proxys</a>
-                <a class="nav-link special" href="#">Checkers</a>
+            <!-- Botón de hamburguesa para dispositivos móviles -->
+            <button class="navbar-toggler mr-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon">
+                    <i class="fas fa-bars"></i>
+                </span>
+            </button>
+
+            <!-- Contenido de la barra de navegación -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link special" href="../secciones/streaming.php">Streaming</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link special" href="#">Proxys</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link special" href="#">Checkers</a>
+                    </li>
+                </ul>
             </div>
 
-            <!-- Icono de administrador -->
-            <a href="../admin/login.php" class="admin-icon">
+            <a href="../admin/login.php" class="admin-icon  ">
                 <i class="fas fa-user-cog"></i>
+
             </a>
 
         </div>
     </nav>
 </header>
 
-    <div class="container">
+    <div class="container animate__animated animate__fadeInDown">
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card">

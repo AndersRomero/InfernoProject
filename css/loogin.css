@@ -1,16 +1,22 @@
 body {
     background-color: #000000;
     font-family: 'Roboto', sans-serif;
-    overflow: hidden; /* Oculta la barra de desplazamiento vertical */
 }
 
 .nav-tabs .nav-link {
     color: #ffffff;
-    font-size: 20px;
+    font-size: 30px;
 }
 
 .nav-tabs .nav-link:hover {
     color: #fd660b;
+}
+.navbar-expand-lg{
+    color: white;
+}
+.navbar .navbar-toggler-icon{
+    color: #fff;
+    margin-top: 50%;
 }
 
 .bg-body-tertiary {

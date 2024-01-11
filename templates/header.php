@@ -1,5 +1,5 @@
 <?php
-$url_base = "http://localhost/personal/infernoproject/admin/";
+$url_base = "https://all-star-emergency.000webhostapp.com/admin/";
 ?>
 
 <!doctype html>
@@ -17,7 +17,57 @@ $url_base = "http://localhost/personal/infernoproject/admin/";
     <title>INFERNO PROJECT</title>
     <style>
         body {
+            overflow: auto;
+            height: auto;
             background-color: #000000;
+            font-family: "Roboto", sans-serif;
+        }
+
+        .nav-tabs .nav-link {
+            color: #ffffff;
+            font-size: 20px;
+        }
+
+        .nav-tabs .nav-link:hover {
+            color: #fd660b;
+        }
+        .navbar-expand-lg{
+            color: white;
+        }
+        .navbar .navbar-toggler-icon{
+            color: #fff;
+            margin-top: 50%;
+        }
+
+        @keyframes example {
+            from {
+                transform: scale(0);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar-nav {
+                text-align: center;
+            }
+
+            .nav-link {
+                font-size: 18px;
+            }
+        }
+
+        .navbar-nav .nav-link {
+            font-size: 24px;
+            margin: 0 15px;
+        }
+
+        .navbar-nav .nav-link.special {
+            font-size: 28px;
+            margin: 0 20px;
         }
         .nav-tabs .nav-link {
             color: #ffffff;
@@ -55,21 +105,35 @@ $url_base = "http://localhost/personal/infernoproject/admin/";
             }
         }
     </script>
-    <header class="container-fuild animate__animated animate__fadeInDown">
-        <nav class="navbar navbar-expand-lg nav-tabs bg-body-tertiary">
+    <header class="container-fluid animate__animated animate__fadeInDown">
+        <nav class="navbar navbar-expand-lg nav-tabs bg-body-tertiary flex-column">
             <div class="container">
-                <div class="collapse navbar-collapse">
-                    <div class="navbar-nav mx-auto">
-                        <a class="nav-link" href="<?php echo $url_base;?>streaming">Streaming</a>
-                        <a class="nav-link" href="<?php echo $url_base;?>proxys">Proxys</a>
-                        <a class="nav-link" href="<?php echo $url_base;?>config">Configs</a>
-                    </div>
-                    <!-- Icono de administrador -->
-                    <a href="../../index.php" class="close-icon animate__animated animate__fadeInDown" onclick="return confirmarRedireccion()">
-                        <i class="fas fa-user-cog"></i>
-                    </a>
+                <!-- Botón de hamburguesa para dispositivos móviles -->
+                <button class="navbar-toggler mr-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon">
+                    <i class="fas fa-bars"></i>
+                </span>
+                </button>
+
+                <!-- Contenido de la barra de navegación -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link special" href="<?php echo $url_base;?>streaming">Streaming</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link special" href="<?php echo $url_base;?>proxys">Proxys</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link special" href="<?php echo $url_base;?>config">Checkers</a>
+                        </li>
+                    </ul>
                 </div>
 
+                <!-- Icono de administrador -->
+                <a href="../../index.php" class="close-icon animate__animated animate__fadeInDown">
+                    <i class="fas fa-user-cog"></i>
+                </a>
             </div>
         </nav>
     </header>

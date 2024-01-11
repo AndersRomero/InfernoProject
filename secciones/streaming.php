@@ -68,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['eliminarItem'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <!-- Estilos personalizados -->
-    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/styleseccions.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
     <style>
@@ -80,18 +80,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['eliminarItem'])) {
 </head>
 
 <body>
-<header class="container-fuild animate__animated animate__fadeInDown">
-    <nav class="navbar navbar-expand-lg nav-tabs bg-body-tertiary">
+<header class="container-fluid animate__animated animate__fadeInDown">
+    <nav class="navbar navbar-expand-lg nav-tabs bg-body-tertiary flex-column">
         <div class="container">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+            <!-- Botón de hamburguesa para dispositivos móviles -->
+            <button class="navbar-toggler mr-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon">
+                    <i class="fas fa-bars"></i>
+                </span>
             </button>
-            <div class="navbar-nav mx-auto  ">
-                <a class="nav-link special" href="streaming.php">Streaming</a>
-                <a class="nav-link special" href="#">Proxys</a>
-                <a class="nav-link special" href="#">Checkers</a>
-                <!-- Icono de Usuario -->
+
+            <!-- Contenido de la barra de navegación -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link special" href="streaming.php">Streaming</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link special" href="#">Proxys</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link special" href="#">Checkers</a>
+                    </li>
+                </ul>
             </div>
+
             <a href="../admin/login.php" class="admin-icon  ">
                 <i class="fas fa-user-cog"></i>
 
@@ -100,12 +113,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['eliminarItem'])) {
             <!-- Icono de carrito -->
             <span class="carrito-icon" onclick="toggleCarrito()">
                         <i class="fas fa-shopping-cart"></i>
-                    </span>
-        </div>
+            </span>
         </div>
     </nav>
 </header>
-
 
 <section class="text-center">
     </br>
@@ -188,9 +199,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['eliminarItem'])) {
 
 
 <!-- JavaScript y Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-6Lla0V7TP1hZl/ZZ9nJ0CmVMWDfXT86a1jww1AEaBAsjFuCZSmKbSSUnQlmh/jpW" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+WyIdJAgwFdhxjusSzsZgMlCpVLMDma5P6d" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
 
 <script>
     function toggleCarrito() {
@@ -215,10 +227,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['eliminarItem'])) {
         var total = "Total: $<?php echo number_format(calcularTotal(), 2); ?> USD";
 
         // Crear el mensaje para WhatsApp
-        var mensajeWhatsApp = "Hola, quiero realizar la siguiente compra:" + listaCarrito + "" + total;
+        var mensajeWhatsApp = "Hola, quiero realizar la siguiente compra: " + listaCarrito + "" + total;
 
         // Crear el enlace de WhatsApp con el mensaje
-        var enlaceWhatsApp = "https://wa.me/573124690139?text=" + encodeURIComponent(mensajeWhatsApp);
+        var enlaceWhatsApp = "https://wa.me/573203345393?text=" + encodeURIComponent(mensajeWhatsApp);
 
         // Redirigir a WhatsApp
         window.location.href = enlaceWhatsApp;

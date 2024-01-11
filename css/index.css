@@ -38,4 +38,11 @@ body {
     .table{
         color: #dcdada;
     }
+.navbar-expand-lg{
+    color: white;
+}
+.navbar .navbar-toggler-icon{
+    color: #fff;
+    margin-top: 50%;
+}
     
