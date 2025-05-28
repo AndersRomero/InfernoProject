@@ -25,7 +25,7 @@
     }
     .background-video {
         position: absolute;
-        top: -20%; /* Adjust the value to move the video up */
+        top: -20%;
         left: 0;
         width: auto;
         height: auto;
@@ -39,6 +39,10 @@
 
     <header class="container-fuild">
         <nav class="navbar navbar-expand-lg nav-tabs bg-body-tertiary animate__animated animate__fadeInDown">
+            <div class="d-flex align-items-center p-2">
+            <!-- Logo alineado a la izquierda y responsivo -->
+                <img src="images/logo.png" alt="Logo de INFERNO PROJECT" class="img-fluid animate__animated animate__fadeInDown" style="max-height: 60px;">
+            </div>
             <div class="container">
                 <button class="navbar-toggler mr-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon">
@@ -53,10 +57,10 @@
                             <a class="nav-link special" href="secciones/streaming.php">Streaming</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link special" href="#">Proxys</a>
+                            <a class="nav-link special" href="secciones/proxy.php">Proxys</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link special" href="#">Checkers</a>
+                            <a class="nav-link special" href="secciones/config.php">Checkers</a>
                         </li>
                     </ul>
                 </div>

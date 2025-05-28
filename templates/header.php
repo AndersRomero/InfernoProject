@@ -1,5 +1,5 @@
 <?php
-$url_base = "https://all-star-emergency.000webhostapp.com/admin/";
+$url_base = "http://localhost/InfernoProject/admin/";
 ?>
 
 <!doctype html>
@@ -108,6 +108,11 @@ $url_base = "https://all-star-emergency.000webhostapp.com/admin/";
     <header class="container-fluid animate__animated animate__fadeInDown">
         <nav class="navbar navbar-expand-lg nav-tabs bg-body-tertiary flex-column">
             <div class="container">
+                <div class="d-flex align-items-center p-2">
+                    <a href="../../index.php">
+                        <img src="../../images/logo.png" alt="Logo de INFERNO PROJECT" class="img-fluid animate__animated animate__fadeInDown" style="max-height: 60px;">
+                    </a>
+                </div>
                 <!-- Botón de hamburguesa para dispositivos móviles -->
                 <button class="navbar-toggler mr-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon">

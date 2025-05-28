@@ -9,10 +9,10 @@ if (!isset($_SESSION['carrito'])) {
     $_SESSION['carrito'] = [];
 }
 
-// Consultar streaming
-$sentencia = $conexion->prepare("SELECT * FROM streaming");
+// Consultar config
+$sentencia = $conexion->prepare("SELECT * FROM config");
 $sentencia->execute();
-$streaming = $sentencia->get_result()->fetch_all(MYSQLI_ASSOC);
+$config = $sentencia->get_result()->fetch_all(MYSQLI_ASSOC);
 
 // Agregar producto al carrito
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['agregarCarrito'])) {
@@ -82,13 +82,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['eliminarItem'])) {
 <body>
 <header class="container-fluid animate__animated animate__fadeInDown">
     <nav class="navbar navbar-expand-lg nav-tabs bg-body-tertiary flex-column">
-        
         <div class="container">
             <div class="d-flex align-items-center p-2">
                 <a href="../index.php">
                     <img src="../images/logo.png" alt="Logo de INFERNO PROJECT" class="img-fluid animate__animated animate__fadeInDown" style="max-height: 60px;">
                 </a>
             </div>
+
             <!-- Botón de hamburguesa para dispositivos móviles -->
             <button class="navbar-toggler mr-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon">
@@ -100,7 +100,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['eliminarItem'])) {
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item">
-                        <a class="nav-link special" href="streaming.php">Streaming</a>
+                        <a class="nav-link special" href="config.php">Streaming</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link special" href="proxy.php">Proxys</a>
@@ -111,11 +111,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['eliminarItem'])) {
                 </ul>
             </div>
 
-            <a href="../admin/login.php" class="admin-icon margin-top">
+            <a href="../admin/login.php" class="admin-icon  ">
                 <i class="fas fa-user-cog"></i>
 
             </a>
 
+            <!-- Icono de carrito -->
             <span class="carrito-icon" onclick="toggleCarrito()">
                         <i class="fas fa-shopping-cart"></i>
             </span>
@@ -125,13 +126,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['eliminarItem'])) {
 
 <section class="text-center">
     </br>
-    <h1 class="text-white animate__animated animate__bounceInLeft">STREAMING</h1>
+    <h1 class="text-white animate__animated animate__bounceInLeft">CHECKERS</h1>
     </br>
 
     <div class="container d-flex flex-wrap justify-content-around">
-        <?php foreach ($streaming as $registros) { ?>
+        <?php foreach ($config as $registros) { ?>
             <div class="card animate__animated animate__fadeInDown">
-                <img src="../admin/streaming/<?php echo $registros['image']; ?>" alt="Card Image" style="width: 100%; height: 200px; object-fit: cover;">
+                <img src="../admin/config/<?php echo $registros['image']; ?>" alt="Card Image" style="width: 100%; height: 200px; object-fit: cover;">
                 <div class="card-content">
                     <h3 class="title"><?php echo $registros['name']; ?></h3>
                     <p class="description"><?php echo $registros['description']; ?></p>

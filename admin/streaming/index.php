@@ -97,9 +97,9 @@ include '../../templates/header.php';
                         <td><?php echo $registro['price'] ?></td>
                         <td>
                             <?php if ($registro['agotado']) { ?>
-                                <button class="btn btn-outline-danger" onclick="cambiarEstado(<?php echo $registro['id']; ?>)">Agotado</button>
+                                <button class="btn btn-danger" onclick="cambiarEstado(<?php echo $registro['id']; ?>)">Agotado</button>
                             <?php } else { ?>
-                                <button class="btn btn-outline-success" onclick="cambiarEstado(<?php echo $registro['id']; ?>)">Disponible</button>
+                                <button class="btn btn-success" onclick="cambiarEstado(<?php echo $registro['id']; ?>)">Disponible</button>
                             <?php } ?>
                         </td>
                         <td>
