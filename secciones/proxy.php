@@ -116,7 +116,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['eliminarItem'])) {
             </a>
 
             <!-- Icono de carrito -->
-            <span class="carrito-icon" onclick="toggleCarrito()">
+            <span class="carrito-icon" onclick="abrirCarrito()">
                         <i class="fas fa-shopping-cart"></i>
             </span>
         </div>
@@ -167,10 +167,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['eliminarItem'])) {
     </div>
 </section>
 
+<div class="carrito-overlay"></div>
 
 <!-- Carrito -->
 <div id="carrito" class="carrito animate__animated animate__fadeInRight">
-    <h3>Tu Carrito</h3>
+    <h3 class="text-center">Tu Carrito</h3>
+    
+    <span class="carrito-close" onclick="cerrarCarrito()">&times;</span>
+
     <div class="carrito-items">
         <?php
         if (!empty($_SESSION['carrito'])) {
@@ -210,19 +214,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['eliminarItem'])) {
 
 
 <script>
-    function toggleCarrito() {
-        var carrito = document.getElementById("carrito");
-        var overlay = document.querySelector(".carrito-overlay");
-        carrito.style.display = carrito.style.display === "block" ? "none" : "block";
-        overlay.style.display = overlay.style.display === "block" ? "none" : "block";
+    function abrirCarrito() {
+    document.querySelector('.carrito').style.display = 'block';
+    document.querySelector('.carrito-overlay').style.display = 'block';
     }
 
     function cerrarCarrito() {
-        var carrito = document.getElementById("carrito");
-        var overlay = document.querySelector(".carrito-overlay");
-        carrito.style.display = "none";
-        overlay.style.display = "none";
+        document.querySelector('.carrito').style.display = 'none';
+        document.querySelector('.carrito-overlay').style.display = 'none';
     }
+
+    // Cerrar al hacer clic fuera
+    document.querySelector('.carrito-overlay').addEventListener('click', cerrarCarrito);
 
     function realizarCompra() {
         // Obtener la lista del carrito en formato de texto
